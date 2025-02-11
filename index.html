@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 transition-all duration-300">
+    <!-- Sidebar + Content Container -->
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="w-64 bg-gray-900 text-white p-5 flex flex-col transition-all duration-300">
+            <h2 class="text-2xl font-bold mb-6">Dashboard</h2>
+            <nav class="flex-1">
+                <ul>
+                    <li class="mb-3">
+                        <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">🏠 Home</a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">📊 Analytics</a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">⚙️ Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            <button id="logoutBtn" class="mt-auto bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg">Logout</button>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col">
+            <!-- Navbar -->
+            <header class="bg-white shadow p-4 flex justify-between items-center">
+                <button id="toggleSidebar" class="text-gray-600 hover:text-black">
+                    ☰
+                </button>
+                <h1 class="text-xl font-semibold">Welcome, User</h1>
+                <div class="flex items-center space-x-4">
+                    <button id="toggleDarkMode" class="px-3 py-2 bg-gray-200 rounded-lg">🌙</button>
+                    <input type="text" placeholder="Search..." class="px-3 py-2 border rounded-lg">
+                    <img src="https://via.placeholder.com/40" class="w-10 h-10 rounded-full" alt="Profile">
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <main class="p-6">
+                <div class="grid grid-cols-3 gap-6">
+                    <!-- Card 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-lg font-semibold">Total Sales</h2>
+                        <p class="text-3xl font-bold mt-2">$12,345</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-lg font-semibold">New Users</h2>
+                        <p class="text-3xl font-bold mt-2">1,234</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-lg font-semibold">Orders</h2>
+                        <p class="text-3xl font-bold mt-2">567</p>
+                    </div>
+                </div>
+
+                <!-- Add Transaction -->
+                <div class="mt-6 bg-white p-6 rounded-lg shadow">
+                    <h2 class="text-lg font-semibold mb-4">Add Transaction</h2>
+                    <input id="dateInput" type="date" class="p-2 border rounded-lg mr-2">
+                    <input id="customerInput" type="text" placeholder="Customer" class="p-2 border rounded-lg mr-2">
+                    <input id="amountInput" type="number" placeholder="Amount" class="p-2 border rounded-lg mr-2">
+                    <select id="statusInput" class="p-2 border rounded-lg">
+                        <option value="Completed">Completed</option>
+                        <option value="Pending">Pending</option>
+                    </select>
+                    <button id="addTransactionBtn" class="bg-blue-500 text-white px-4 py-2 rounded-lg ml-2">Add</button>
+                </div>
+
+                <!-- Table -->
+                <div class="mt-6 bg-white p-6 rounded-lg shadow">
+                    <h2 class="text-lg font-semibold mb-4">Recent Transactions</h2>
+                    <table class="w-full border-collapse">
+                        <thead>
+                            <tr class="bg-gray-200">
+                                <th class="p-3 text-left">Date</th>
+                                <th class="p-3 text-left">Customer</th>
+                                <th class="p-3 text-left">Amount</th>
+                                <th class="p-3 text-left">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionTableBody">
+                            <tr class="border-t">
+                                <td class="p-3">Feb 10, 2025</td>
+                                <td class="p-3">John Doe</td>
+                                <td class="p-3">$120</td>
+                                <td class="p-3 text-green-600">Completed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
